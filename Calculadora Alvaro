@@ -1,0 +1,230 @@
+package BuclesNumeros;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Calculadora {
+
+	static double numero1 , numero2;
+	static int n, elegir;//Atributos de la clase, 'n'  para elegir la operacion
+	static boolean salir = false, b1, b2;
+	static int resp;
+	static InputStreamReader isr = new InputStreamReader(System.in);
+	static BufferedReader br = new BufferedReader (isr);
+	
+	public static void main(String[] args) throws  IOException {
+		
+		do {
+			
+		elegir();
+		llamarTipo(elegir);
+		repetir();
+		
+		}while(salir == false);
+		
+	}
+	
+	public static void elegir() throws IOException {
+		System.out.println("Elige que hacer:");
+		System.out.println("1.Operación Aritmética");
+		System.out.println("2.Operación Lógica");
+		elegir = Integer.parseInt(br.readLine());
+	}
+	
+	public static void llamarTipo(int elegir) throws IOException {
+		switch (elegir) {
+		case 1: {
+			
+			elegirOperacion();
+			ingresarNumeros();
+			llamarOpcion();
+			
+			break;
+		}
+		case 2:{
+			elegirOperacionLogica();
+			ingresarValores();
+			llamarOpcionLogica();
+			break;
+		}
+		default:
+			System.out.println("No has introducido un numero correcto...");
+		}
+	}
+	
+	public static void elegirOperacion() throws  IOException {
+		System.out.println("Elige: ");
+		System.out.println("1.Sumar");
+		System.out.println("2.Restar");
+		System.out.println("3.Multiplicar");
+		System.out.println("4.Dividir");
+		System.out.println("5.Modulo");
+		
+		n = Integer.parseInt(br.readLine());
+		
+	}
+	
+	public static void elegirOperacionLogica() throws  IOException {
+		System.out.println("Elige para comparar dos numeros: ");
+		System.out.println("1.AND");
+		System.out.println("2.OR");
+		System.out.println("3.NOT");
+		System.out.println("4.XOR");
+		System.out.println("5.NAND");
+		System.out.println("6.NOR");
+		
+		n = Integer.parseInt(br.readLine());
+		
+	}
+	
+	
+	public static void ingresarNumeros() throws  IOException {
+		System.out.println("Añada el primer numero: ");
+		numero1 = Double.parseDouble(br.readLine());
+		
+			
+		System.out.println("Añada el segundo numero: ");
+		numero2 = Double.parseDouble(br.readLine());
+			
+		
+		
+		
+	}
+	
+	public static void ingresarValores() throws  IOException {
+		System.out.println("Añada 'true' o 'false': ");
+		b1 = Boolean.parseBoolean(br.readLine());
+		//System.out.println(b1); comprobación de valor
+		if (n!=3)	{
+			System.out.println("Añada 'true' o 'false': ");
+			b2 = Boolean.parseBoolean(br.readLine());
+		}		
+	}
+	
+	public static void llamarOpcion() {
+		switch (n) {
+		case 1: {
+			System.out.println(suma(numero1,numero2));			
+		}break;
+		case 2: {
+			System.out.println(resta(numero1,numero2));			
+		}break;
+		case 3: {
+			System.out.println(multiplicacion(numero1,numero2));			
+		}break;
+		case 4: {
+			try {
+			System.out.println(division(numero1,numero2));	
+			}
+			catch(Exception e) {
+				System.out.println("No se puede dividir entre 0...");				
+			}
+		}break;
+		case 5: {
+			System.out.println(modulo(numero1,numero2));			
+		}break;
+		default:
+			System.out.println("No has elegido una oopcion correcta...");
+		}
+			
+	}
+	
+	public static void llamarOpcionLogica() {
+		switch (n) {
+		case 1: {
+			System.out.println(AND(b1,b2));			
+		}break;
+		case 2: {
+			System.out.println(OR(b1,b2));			
+		}break;
+		case 3: {
+			System.out.println(NOT(b1));			
+		}break;
+		case 4: {
+			System.out.println(XOR(b1,b2));			
+		}break;
+		
+		case 5: {
+			System.out.println(NAND(b1,b2));			
+		}break;
+		case 6: {
+			System.out.println(NOR(b1,b2));			
+		}break;
+		
+		default:
+			System.out.println("No has elegido una oopcion correcta...");
+		}
+	}
+	
+	
+	
+	public static boolean repetir() throws IOException {
+
+		do {
+			
+			System.out.println("Quieres hacer otra cuenta? ");
+			System.out.println("1.Repetir ");
+			System.out.println("0. Salir ");
+			resp = Integer.parseInt(br.readLine());
+			
+		}while(resp !=0 && resp != 1);
+		
+		if (resp == 1) {
+			return salir = false;
+		}
+		else {
+			
+			System.out.println("Saliendo del programa...");
+			return salir = true;
+		}
+		
+		
+	}
+	
+	private static double suma(double numero1, double numero2) {
+		return (numero1 + numero2);
+	}
+
+	private static double resta(double numero1, double numero2) {
+		return (numero1 - numero2);
+	}
+	
+	private static double multiplicacion(double numero1, double numero2) {
+		return (numero1 * numero2);
+	}
+	
+	private static double division(double numero1, double numero2) {
+		return ((double) numero1 / numero2);
+	}
+	
+	private static double modulo(double numero1, double numero2) {
+		return (numero1 % numero2);
+	}
+	
+	
+	
+	private static boolean AND(boolean b1, boolean b2) {
+		return (b1 && b2);
+	}
+
+	private static boolean OR(boolean b1, boolean b2) {
+		return (b1 || b2);
+	}
+	
+	private static boolean NOT(boolean b1) {
+		return (!b1);
+	}
+	
+	private static boolean XOR(boolean b1, boolean b2) {
+		return (b1 ^ b2);
+	}
+	
+	private static boolean NAND(boolean b1, boolean b2) {
+		return (!b1 && !b2);
+	}
+
+	private static boolean NOR(boolean b1, boolean b2) {
+		return (!b1 || !b2);
+	}
+	
+}
