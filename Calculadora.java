@@ -1,4 +1,4 @@
-package BuclesNumeros;
+package BuclesNumeros;//hola
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -28,8 +28,8 @@ public class Calculadora {
 	
 	public static void menu() throws IOException {
 		System.out.println("Elige que hacer:");
-		System.out.println("1.Operaci髇 Aritm閠ica");
-		System.out.println("2.Operaci髇 L骻ica");
+		System.out.println("1.Operaci贸n Aritm茅tica");
+		System.out.println("2.Operaci贸n L贸gica");
 		try {
 		tipoOperacion = Integer.parseInt(br.readLine());
 		}catch(NumberFormatException nfe) {
@@ -99,14 +99,14 @@ public class Calculadora {
 	
 	public static void operandosAritmeticos() throws  NumberFormatException, IOException {
 		try {
-		System.out.println("A馻da el primer numero: ");
+		System.out.println("A帽ada el primer numero: ");
 		numero1 = Double.parseDouble(br.readLine());
 		
 		do {
-			System.out.println("A馻da el segundo numero: ");
+			System.out.println("A帽ada el segundo numero: ");
 			numero2 = Double.parseDouble(br.readLine());
 			if(operacion == 4 && numero2 == 0) {
-				System.out.println("No se puede dividir un n鷐ero entre 0.");
+				System.out.println("No se puede dividir un n煤mero entre 0.");
 				System.out.println("Pruebe de nuevo.");
 			}
 		}
@@ -122,11 +122,11 @@ public class Calculadora {
 	
 	public static void operandosLogicos() throws  NumberFormatException, IOException {
 		try {
-		System.out.println("A馻da 'true' o 'false': ");
+		System.out.println("A帽ada 'true' o 'false': ");
 		booleano1 = Boolean.parseBoolean(br.readLine());
-		//System.out.println(b1); comprobaci髇 de valor
+		//System.out.println(b1); comprobaci贸n de valor
 		if (operacion!=3)	{
-			System.out.println("A馻da 'true' o 'false': ");
+			System.out.println("A帽ada 'true' o 'false': ");
 			booleano2 = Boolean.parseBoolean(br.readLine());
 		}	
 		
@@ -195,7 +195,7 @@ public class Calculadora {
 
 		do {
 			
-			System.out.println("縌uieres hacer otra operaci髇? ");
+			System.out.println("驴Quieres hacer otra operaci贸n? ");
 			System.out.println("1.Repetir ");
 			System.out.println("0.Salir ");
 			try {
