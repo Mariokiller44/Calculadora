@@ -9,7 +9,7 @@ public class Calculadora {
 	static boolean salir = false, booleano1, booleano2;//variable bandera y operandos logicos
 	static int respuesta;//para repetir operacion
 	static InputStreamReader isr = new InputStreamReader(System.in);
-	static BufferedReader br = new BufferedReader (isr);
+	static BufferedReader br = new BufferedReader (isr); //arreglos
 	
 	public static void main(String[] args) throws  IOException {
 		
