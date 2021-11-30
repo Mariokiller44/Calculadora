@@ -14,10 +14,17 @@ public class Calculadora {
 	public static void main(String[] args) throws  IOException {
 		
 		do {
-			
-		menu();
-		elegirMenu(tipoOperacion);
-		repetirPrograma();
+			try {
+				menu();
+				elegirMenu(tipoOperacion);
+				repetirPrograma();
+			}
+			catch(NumberFormatException nfe) {
+				System.out.println("Eso no es un valor valido.");
+			}
+		
+		
+		
 		
 		}while(salir == false);
 		
@@ -25,7 +32,7 @@ public class Calculadora {
 	
 	//ELEGIR ENTRE MENU ARITMETICO O LOGICO
 	
-	public static void menu() throws IOException {
+	public static void menu() throws IOException, NumberFormatException {
 		System.out.println("Elige que hacer:");
 		System.out.println("1.Operación Aritmética");
 		System.out.println("2.Operación Lógica");
@@ -34,7 +41,7 @@ public class Calculadora {
 	
 	//EJECUCION DEL MENU ARITMETICO O LOGICO
 	
-	public static void elegirMenu(int elegir) throws IOException {
+	public static void elegirMenu(int elegir) throws IOException, NumberFormatException {
 		switch (elegir) {
 		case 1: {
 			
@@ -57,7 +64,7 @@ public class Calculadora {
 	
 	//SELECCIONAR OPERACION ARITMETICA
 	
-	public static void elegirOperacionAritmetica() throws  IOException {
+	public static void elegirOperacionAritmetica() throws  IOException, NumberFormatException {
 		System.out.println("Elige: ");
 		System.out.println("1.Sumar");
 		System.out.println("2.Restar");
@@ -71,7 +78,7 @@ public class Calculadora {
 	
 	//SELECCIONAR OPERACION LOGICA
 	
-	public static void elegirOperacionLogica() throws  IOException {
+	public static void elegirOperacionLogica() throws  IOException, NumberFormatException {
 		System.out.println("Elige para comparar dos numeros: ");
 		System.out.println("1.AND");
 		System.out.println("2.OR");
@@ -171,7 +178,7 @@ public class Calculadora {
 	
 	//REPETIR PROGRAMA
 	
-	public static boolean repetirPrograma() throws IOException {
+	public static boolean repetirPrograma() throws IOException, NumberFormatException {
 
 		do {
 			
@@ -209,7 +216,7 @@ public class Calculadora {
 	}
 	
 	private static double hacerDivision(double numero1, double numero2) {
-		return ((double) numero1 / numero2);
+		return (numero1 / numero2);
 	}
 	
 	private static double hacerModulo(double numero1, double numero2) {
