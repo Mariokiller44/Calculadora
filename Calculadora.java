@@ -6,7 +6,7 @@ public class Calculadora {
 
 	static double numero1 , numero2;//operandos aritmeticos
 	static int operacion, tipoOperacion;//seleccionar operacion y tipo de operacion
-	static boolean salir = false, booleano1, booleano2;//variable bandera y operandos logicos
+	static boolean salir = false, booleano1 = false, booleano2 = false;//variable bandera y operandos logicos
 	static int respuesta;//para repetir operacion
 	static InputStreamReader isr = new InputStreamReader(System.in);
 	static BufferedReader br = new BufferedReader (isr);
@@ -128,13 +128,24 @@ public class Calculadora {
 	//OPERANDOS LOGICOS
 	
 	public static void operandosLogicos() throws  IOException {
-		System.out.println("Añada 'true' o 'false': ");
-		booleano1 = Boolean.parseBoolean(br.readLine());
-		//System.out.println(b1); comprobación de valor
-		if (operacion!=3)	{
-			System.out.println("Añada 'true' o 'false': ");
-			booleano2 = Boolean.parseBoolean(br.readLine());
-		}		
+		do {
+			System.out.println("Añada '1' para 'true' o '0' para 'false': ");
+			numero1 = Double.parseDouble(br.readLine());
+			if(numero1 == 1)
+				booleano1 = true;
+			else
+				booleano1 = false;
+			//System.out.println(b1); comprobación de valor
+			if (operacion!=3)	{
+				System.out.println("Añada 'true' o 'false': ");
+				numero2 = Double.parseDouble(br.readLine());
+				if(numero2 == 1)
+					booleano2 = true;
+				else
+					booleano2 = false;
+			}	
+		
+		}while(numero1 != 1 && numero1 != 0 && numero2 != 1 && numero2 != 0);
 	}
 	
 	//ELEGIR OPERACION ARITMETICA
