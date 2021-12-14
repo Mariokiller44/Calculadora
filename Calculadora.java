@@ -270,5 +270,5 @@ public class Calculadora {
 	private static boolean hacerNor(boolean b1, boolean b2) {
 		return (!b1 || !b2);
 	}
-	
+	//hila
 }
