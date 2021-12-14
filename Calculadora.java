@@ -145,7 +145,7 @@ public class Calculadora {
 					booleano2 = false;
 			}	
 		
-		}while(numero1 != 1 && numero1 != 0 && numero2 != 1 && numero2 != 0);
+		}while(numero1 != 1 && numero1 != 0 || numero2 != 1 && numero2 != 0);
 	}
 	
 	//ELEGIR OPERACION ARITMETICA
