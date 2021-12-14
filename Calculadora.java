@@ -137,7 +137,7 @@ public class Calculadora {
 				booleano1 = false;
 			//System.out.println(b1); comprobación de valor
 			if (operacion!=3)	{
-				System.out.println("Añada 'true' o 'false': ");
+				System.out.println("Añada '1' para 'true' o '0' para 'false': ");
 				numero2 = Double.parseDouble(br.readLine());
 				if(numero2 == 1)
 					booleano2 = true;
